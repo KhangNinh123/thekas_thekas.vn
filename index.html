@@ -76,21 +76,51 @@
 </head>
 <body class="bg-black text-white">    <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-sm font-anton">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">                <div class="text-4xl font-bold text-[#149D8D]">
-                    THE KAS
-                </div>                <div class="hidden md:flex items-center space-x-8">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Hamburger menu left (mobile only) -->
+                <div class="flex items-center sm:hidden flex-1">
+                    <button id="mobile-menu-btn" class="mr-2 text-[#149D8D] focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- Logo left (desktop), center (mobile) -->
+                <div class="flex-1 flex items-center justify-center sm:justify-start">
+                    <div class="text-2xl sm:text-4xl font-bold text-[#149D8D] text-center sm:text-left">
+                        THE KAS
+                    </div>
+                </div>
+                <!-- Desktop menu ngang ở giữa -->
+                <div class="hidden sm:flex flex-1 items-center justify-center space-x-8">
                     <a href="#" class="nav-link text-[#149D8D] text-xl hover:text-[#149D8D]/80 transition-all duration-300 active" data-page="home">TRANG CHỦ</a>
                     <a href="about.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="about">VỀ CHÚNG TÔI</a>
                     <a href="https://dailythekas.com/" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="agents" target="_blank">ĐẠI LÝ</a>
                     <a href="blog.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="blog">BÀI VIẾT</a>
                     <a href="careers.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="careers">TUYỂN DỤNG</a>
-                </div><button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-6 py-2 rounded-md transition-colors text-lg">
-                    LIÊN HỆ HỢP TÁC
-                </button>
+                </div>
+                <!-- Contact button right -->
+                <div class="flex-1 flex justify-end">
+                    <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-4 sm:px-6 py-2 rounded-md transition-colors text-base sm:text-lg ml-2">
+                        LIÊN HỆ HỢP TÁC
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu dọc -->
+            <div id="mobile-menu" class="sm:hidden hidden w-full absolute left-0 top-full bg-black/95 px-2 py-4 z-50">
+                <div class="flex flex-col items-center space-y-2">
+                    <a href="#" class="nav-link text-[#149D8D] text-base font-bold hover:text-[#149D8D]/80 transition-all duration-300 active w-full text-center py-2" data-page="home">TRANG CHỦ</a>
+                    <a href="about.html" class="nav-link text-[#149D8D]/70 text-base font-bold hover:text-[#149D8D] transition-all duration-300 w-full text-center py-2" data-page="about">VỀ CHÚNG TÔI</a>
+                    <a href="https://dailythekas.com/" class="nav-link text-[#149D8D]/70 text-base font-bold hover:text-[#149D8D] transition-all duration-300 w-full text-center py-2" data-page="agents" target="_blank">ĐẠI LÝ</a>
+                    <a href="blog.html" class="nav-link text-[#149D8D]/70 text-base font-bold hover:text-[#149D8D] transition-all duration-300 w-full text-center py-2" data-page="blog">BÀI VIẾT</a>
+                    <a href="careers.html" class="nav-link text-[#149D8D]/70 text-base font-bold hover:text-[#149D8D] transition-all duration-300 w-full text-center py-2" data-page="careers">TUYỂN DỤNG</a>
+                </div>
             </div>
         </div>
-    </nav><!-- Hero Section -->
+    </nav>
+
+    <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">        <!-- Background Elements -->
         <div class="absolute inset-0">
             <img 
@@ -685,6 +715,17 @@
             
             // Initialize with home page active (current state)
             setActiveNav('home');
+        });
+
+        // Hamburger menu cho mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
         });
     </script>
 </body>

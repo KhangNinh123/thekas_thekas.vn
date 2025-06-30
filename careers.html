@@ -80,21 +80,47 @@
 </head>
 <body class="bg-black text-white">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm font-anton border-b border-gray-800">
-        <div class="container mx-auto px-6 py-4">
+    <nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-sm font-anton">
+        <div class="container mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
-                <div class="text-4xl font-bold text-[#149D8D]">
-                    <a href="index.html">THE KAS</a>
-                </div>                <div class="hidden md:flex items-center space-x-8">
+                <!-- Hamburger menu left (mobile only) -->
+                <div class="flex items-center sm:hidden flex-1">
+                    <button id="mobile-menu-btn" class="mr-2 text-[#149D8D] focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- Logo left (desktop), center (mobile) -->
+                <div class="flex-1 flex items-center justify-center sm:justify-start">
+                    <div class="text-2xl sm:text-4xl font-bold text-[#149D8D] text-center sm:text-left">
+                        <a href="index.html">THE KAS</a>
+                    </div>
+                </div>
+                <!-- Desktop menu ngang ở giữa -->
+                <div class="hidden sm:flex flex-1 items-center justify-center space-x-8">
                     <a href="index.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="home">TRANG CHỦ</a>
                     <a href="about.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="about">VỀ CHÚNG TÔI</a>
                     <a href="https://dailythekas.com/" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="agents" target="_blank">ĐẠI LÝ</a>
                     <a href="blog.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="blog">BÀI VIẾT</a>
                     <a href="careers.html" class="nav-link text-[#149D8D] text-xl hover:text-[#149D8D]/80 transition-all duration-300 active" data-page="careers">TUYỂN DỤNG</a>
                 </div>
-                <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-6 py-2 rounded-md transition-colors text-lg">
-                    LIÊN HỆ HỢP TÁC
-                </button>
+                <!-- Contact button right -->
+                <div class="flex-1 flex justify-end">
+                    <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-4 sm:px-6 py-2 rounded-md transition-colors text-base sm:text-lg ml-2">
+                        LIÊN HỆ HỢP TÁC
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu dọc -->
+            <div id="mobile-menu" class="sm:hidden hidden w-full absolute left-0 top-full bg-black/95 px-2 py-4 z-50">
+                <div class="flex flex-col items-center space-y-2">
+                    <a href="index.html" class="nav-link text-[#149D8D] text-base font-bold hover:text-[#149D8D]/80 transition-all duration-300 w-full text-center py-2" data-page="home">TRANG CHỦ</a>
+                    <a href="about.html" class="nav-link text-[#149D8D]/70 text-base font-bold hover:text-[#149D8D] transition-all duration-300 w-full text-center py-2" data-page="about">VỀ CHÚNG TÔI</a>
+                    <a href="https://dailythekas.com/" class="nav-link text-[#149D8D]/70 text-base font-bold hover:text-[#149D8D] transition-all duration-300 w-full text-center py-2" data-page="agents" target="_blank">ĐẠI LÝ</a>
+                    <a href="blog.html" class="nav-link text-[#149D8D]/70 text-base font-bold hover:text-[#149D8D] transition-all duration-300 w-full text-center py-2" data-page="blog">BÀI VIẾT</a>
+                    <a href="careers.html" class="nav-link text-[#149D8D]/70 text-base font-bold hover:text-[#149D8D] transition-all duration-300 w-full text-center py-2 active" data-page="careers">TUYỂN DỤNG</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -605,8 +631,7 @@
         // Navigation Active State Handler
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
-            
-            // Function to set active navigation
+              // Function to set active navigation
             function setActiveNav(activePage) {
                 navLinks.forEach(link => {
                     const page = link.getAttribute('data-page');
@@ -620,23 +645,19 @@
                         link.classList.add('text-[#149D8D]/70');
                     }
                 });
-            }
-              // Add click handlers to navigation links
+            }              // Add click handlers to navigation links
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     const page = this.getAttribute('data-page');
-                    
-                    // Handle links with actual URLs
-                    if (this.href.includes('.html')) {
+                    // Handle links with actual URLs (external links or HTML files)
+                    if (this.href.includes('.html') || this.href.includes('http')) {
                         // Let the browser handle the navigation naturally
                         return;
                     }
-                    
                     // Handle in-page navigation
                     if (page) {
                         e.preventDefault();
                         setActiveNav(page);
-                        
                         // Add smooth animation effect
                         this.style.transform = 'scale(1.05)';
                         setTimeout(() => {
@@ -645,42 +666,18 @@
                     }
                 });
             });
-            
             // Initialize with careers page active
             setActiveNav('careers');
-            
-            // Smooth scroll to job positions section
-            const viewJobsBtn = document.getElementById('view-jobs-btn');
-            if (viewJobsBtn) {
-                viewJobsBtn.addEventListener('click', function() {
-                    const openPositionsSection = document.getElementById('open-positions');
-                    if (openPositionsSection) {
-                        openPositionsSection.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+        });
+        // Hamburger menu cho mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
                 });
             }
-        });
-        
-        // Smooth scroll animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeInUp');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
         });
     </script>
 </body>

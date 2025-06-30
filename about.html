@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Về Chúng Tôi - The Kas Board Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        pulse: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '.5' }
+                        },
+                        bounce: {
+                            '0%, 100%': { transform: 'translateY(-25%)', animationTimingFunction: 'cubic-bezier(0.8,0,1,1)' },
+                            '50%': { transform: 'none', animationTimingFunction: 'cubic-bezier(0,0,0.2,1)' }
+                        }
+                    },
+                    animation: {
+                        'fadeInUp': 'fadeInUp 0.6s ease-out forwards',
+                        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce': 'bounce 1s infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-anton {
+            font-family: 'Anton', sans-serif;
+        }
+        .blur-3xl {
+            filter: blur(64px);
+        }
+        
+        /* Navigation Active States */
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .nav-link.active {
+            color: #149D8D !important;
+            font-weight: 700;
+        }
+        
+        .nav-link:not(.active) {
+            opacity: 0.9;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #149D8D, transparent);
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover:not(.active) {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm font-anton border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-4xl font-bold text-[#149D8D]">
+                    <a href="index.html">THE KAS</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="home">TRANG CHỦ</a>
+                    <a href="about.html" class="nav-link text-[#149D8D] text-xl hover:text-[#149D8D]/80 transition-all duration-300 active" data-page="about">VỀ CHÚNG TÔI</a>
+                    <a href="https://dailythekas.com/" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="agents" target="_blank">ĐẠI LÝ</a>
+                    <a href="blog.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="blog">BÀI VIẾT</a>
+                    <a href="careers.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="careers">TUYỂN DỤNG</a>
+                </div>
+                <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-6 py-2 rounded-md transition-colors text-lg">
+                    LIÊN HỆ HỢP TÁC
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Effects -->
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 right-0 w-96 h-96 bg-[#149D8D] rounded-full opacity-10 blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-green-400 rounded-full opacity-10 blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500 rounded-full opacity-5 blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto animate-fadeInUp">
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-8 font-anton">
+                    VỀ
+                    <span class="text-[#149D8D] block">THE KAS</span>
+                </h1>
+                <p class="text-2xl md:text-3xl text-gray-300 mb-12 leading-relaxed">
+                    Hành trình 10+ năm xây dựng thương hiệu board game hàng đầu Việt Nam
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Content -->
+                <div class="space-y-8">                    <div class="space-y-6">                        <h2 class="text-4xl md:text-5xl font-black text-white leading-relaxed font-anton">
+                            KHI NHIỆT HUYẾT VÀ TRÁCH NHIỆM
+                            <span class="text-[#149D8D] block mt-4">TẠO NÊN SỰ KHÁC BIỆT</span>
+                        </h2>
+                        
+                        <p class="text-xl text-gray-400 leading-relaxed">
+                            THE KAS tin rằng thỏa mãn nhu cầu khách hàng là nền tảng của sự thành công trong sản xuất kinh doanh.
+                        </p>
+                        
+                        <p class="text-lg text-gray-400 leading-relaxed">
+                            Mọi hoạt động của THE KAS đều xuất phát từ sự chân thành, chủ động lắng nghe, cùng tạo giá trị.
+                        </p>
+                        
+                        <p class="text-lg text-gray-400 leading-relaxed">
+                            Lấy sự an tâm và hài lòng của khách hàng, đối tác, đồng nghiệp và người lao động là mục tiêu bền vững của công ty.
+                        </p>
+                        
+                        <p class="text-lg text-gray-400 leading-relaxed">
+                            Mang đến cho khách hàng những sản phẩm, dịch vụ chất lượng cao. Không ngừng đổi mới.
+                        </p>
+                        
+                        <p class="text-lg text-gray-400 leading-relaxed font-semibold">
+                            Làm việc với tất cả niềm đam mê, nhiệt huyết và trách nhiệm.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                        <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-8 py-4 rounded-md transition-colors flex items-center justify-center">
+                            XEM SẢN PHẨM
+                            <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Image -->
+                <div class="relative">
+                    <div class="relative z-10 bg-gradient-to-br from-[#149D8D]/20 to-green-400/20 rounded-3xl p-8 backdrop-blur-sm border border-white/10">
+                        <img 
+                            src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=600&h=400" 
+                            alt="The Kas Story" 
+                            class="w-full h-80 object-cover rounded-2xl"
+                        />
+                    </div>
+                    
+                    <!-- Floating Card -->
+                    <div class="absolute -bottom-8 -left-8 bg-[#149D8D] rounded-2xl p-6 text-white z-20">
+                        <div class="text-center">
+                            <div class="text-3xl font-black mb-2">2014</div>
+                            <div class="text-sm opacity-90">Thành Lập</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6 font-anton">
+                    GIÁ TRỊ CỐT LÕI
+                    <span class="text-[#149D8D] block">CỦA CHÚNG TÔI</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Những giá trị định hướng mọi hoạt động và quyết định của The Kas
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Value 1 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-gray-900 border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
+                    <div class="w-16 h-16 bg-[#149D8D] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-[#149D8D] transition-colors">
+                        Sáng Tạo
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Không ngừng đổi mới và sáng tạo để mang đến những trải nghiệm board game độc đáo và thú vị.
+                    </p>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-gray-900 border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
+                    <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-[#149D8D] transition-colors">
+                        Chất Lượng
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Cam kết mang đến sản phẩm chất lượng cao với thiết kế tinh tế và cơ chế chơi hấp dẫn.
+                    </p>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-gray-900 border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
+                    <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-[#149D8D] transition-colors">
+                        Cộng Đồng
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Xây dựng và phát triển cộng đồng yêu thích board game tại Việt Nam.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Team Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6 font-anton">
+                    ĐỘI NGŨ
+                    <span class="text-[#149D8D] block">CỦA CHÚNG TÔI</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Những con người tài năng và đam mê đứng sau thành công của The Kas
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- CEO -->
+                <div class="group relative overflow-hidden rounded-3xl bg-gray-900 border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
+                    <div class="text-center">
+                        <div class="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl font-bold">
+                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-white mb-2 group-hover:text-[#149D8D] transition-colors">
+                            Nguyễn Văn A
+                        </h3>
+                        <p class="text-xl text-[#149D8D] font-semibold mb-4">CEO & Founder</p>
+                        <p class="text-gray-400 leading-relaxed">
+                            Với hơn 15 năm kinh nghiệm trong ngành game, anh A đã dẫn dắt The Kas trở thành thương hiệu board game hàng đầu Việt Nam.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CTO -->
+                <div class="group relative overflow-hidden rounded-3xl bg-gray-900 border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
+                    <div class="text-center">
+                        <div class="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl font-bold">
+                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-white mb-2 group-hover:text-[#149D8D] transition-colors">
+                            Trần Thị B
+                        </h3>
+                        <p class="text-xl text-[#149D8D] font-semibold mb-4">CTO</p>
+                        <p class="text-gray-400 leading-relaxed">
+                            Chuyên gia công nghệ với nhiều năm kinh nghiệm phát triển game. Chị B đảm nhận việc thiết kế và phát triển các sản phẩm board game đột phá.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CMO -->
+                <div class="group relative overflow-hidden rounded-3xl bg-gray-900 border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
+                    <div class="text-center">
+                        <div class="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl font-bold">
+                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-white mb-2 group-hover:text-[#149D8D] transition-colors">
+                            Lê Văn C
+                        </h3>
+                        <p class="text-xl text-[#149D8D] font-semibold mb-4">CMO</p>
+                        <p class="text-gray-400 leading-relaxed">
+                            Giám đốc Marketing sáng tạo, anh C chịu trách nhiệm xây dựng thương hiệu và kết nối The Kas với cộng đồng yêu thích board game.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6 font-anton">
+                    CỘT MỐC
+                    <span class="text-[#149D8D] block">PHÁT TRIỂN</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Những dấu mốc quan trọng trong hành trình phát triển của The Kas
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Progress Line -->
+                    <div class="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#149D8D] to-green-400"></div>
+                    
+                    <!-- Milestone 1 -->
+                    <div class="relative flex items-start mb-12">
+                        <div class="flex-shrink-0 w-16 h-16 bg-[#149D8D] rounded-full flex items-center justify-center text-white font-bold text-lg z-10">
+                            2014
+                        </div>
+                        <div class="ml-8">
+                            <h3 class="text-2xl font-bold text-white mb-3">Thành Lập Công Ty</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                The Kas được thành lập với sứ mệnh mang board game đến gần hơn với người Việt Nam.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 2 -->
+                    <div class="relative flex items-start mb-12">
+                        <div class="flex-shrink-0 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-lg z-10">
+                            2016
+                        </div>
+                        <div class="ml-8">
+                            <h3 class="text-2xl font-bold text-white mb-3">Ra Mắt Sản Phẩm Đầu Tiên</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Sản phẩm board game đầu tiên được thiết kế hoàn toàn bởi team The Kas ra mắt thị trường.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 3 -->
+                    <div class="relative flex items-start mb-12">
+                        <div class="flex-shrink-0 w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg z-10">
+                            2019
+                        </div>
+                        <div class="ml-8">
+                            <h3 class="text-2xl font-bold text-white mb-3">Mở Rộng Thị Trường</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Phát triển mạng lưới đại lý trên toàn quốc và xuất khẩu sản phẩm ra nước ngoài.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 4 -->
+                    <div class="relative flex items-start">
+                        <div class="flex-shrink-0 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg z-10">
+                            2024
+                        </div>
+                        <div class="ml-8">
+                            <h3 class="text-2xl font-bold text-white mb-3">Dẫn Đầu Thị Trường</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Trở thành thương hiệu board game số 1 tại Việt Nam với hơn 50 sản phẩm được yêu thích.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold mb-4">
+                        <span class="text-[#149D8D]">THE</span> KAS
+                    </div>
+                    <p class="text-gray-400">
+                        Thương hiệu board game hàng đầu Việt Nam, mang đến những trải nghiệm chơi game độc đáo.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">DỊCH VỤ</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Thiết kế Board Game</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Phát triển Game</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Sự kiện</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Tư vấn</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">LIÊN KẾT</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-[#149D8D] transition-colors">Trang chủ</a></li>
+                        <li><a href="blog.html" class="hover:text-[#149D8D] transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Cộng đồng</a></li>
+                        <li><a href="careers.html" class="hover:text-[#149D8D] transition-colors">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">LIÊN HỆ</h3>
+                    <p class="text-gray-400 mb-2">Email: hello@thekas.vn</p>
+                    <p class="text-gray-400 mb-4">Phone: +84 123 456 789</p>
+                    <div class="flex space-x-4">
+                        <button class="border border-[#149D8D] text-[#149D8D] px-4 py-2 rounded text-sm hover:bg-[#149D8D] hover:text-white transition-colors">
+                            Facebook
+                        </button>
+                        <button class="border border-[#149D8D] text-[#149D8D] px-4 py-2 rounded text-sm hover:bg-[#149D8D] hover:text-white transition-colors">
+                            Instagram
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; Copyright 2025 © The Kas.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Active State Handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Function to set active navigation
+            function setActiveNav(activePage) {
+                navLinks.forEach(link => {
+                    const page = link.getAttribute('data-page');
+                    if (page === activePage) {
+                        link.classList.add('active');
+                        link.classList.remove('text-[#149D8D]/70');
+                        link.classList.add('text-[#149D8D]');
+                    } else {
+                        link.classList.remove('active');
+                        link.classList.remove('text-[#149D8D]');
+                        link.classList.add('text-[#149D8D]/70');
+                    }
+                });
+            }
+            
+            // Add click handlers to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const page = this.getAttribute('data-page');
+                    
+                    // Handle links with actual URLs (external links or HTML files)
+                    if (this.href.includes('.html') || this.href.includes('http')) {
+                        // Let the browser handle the navigation naturally
+                        return;
+                    }
+                    
+                    // Handle in-page navigation
+                    if (page) {
+                        e.preventDefault();
+                        setActiveNav(page);
+                        
+                        // Add smooth animation effect
+                        this.style.transform = 'scale(1.05)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+                    }
+                });
+            });
+            
+            // Initialize with about page active
+            setActiveNav('about');
+        });
+        
+        // Smooth scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

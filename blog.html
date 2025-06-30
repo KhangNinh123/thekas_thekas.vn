@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Viết - The Kas Board Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        pulse: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '.5' }
+                        },
+                        bounce: {
+                            '0%, 100%': { transform: 'translateY(-25%)', animationTimingFunction: 'cubic-bezier(0.8,0,1,1)' },
+                            '50%': { transform: 'none', animationTimingFunction: 'cubic-bezier(0,0,0.2,1)' }
+                        }
+                    },
+                    animation: {
+                        'fadeInUp': 'fadeInUp 0.6s ease-out forwards',
+                        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce': 'bounce 1s infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-anton {
+            font-family: 'Anton', sans-serif;
+        }
+        .blur-3xl {
+            filter: blur(64px);
+        }
+        
+        /* Navigation Active States */
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .nav-link.active {
+            color: #149D8D !important;
+            font-weight: 700;
+        }
+        
+        .nav-link:not(.active) {
+            opacity: 0.9;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #149D8D, transparent);
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover:not(.active) {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm font-anton border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-4xl font-bold text-[#149D8D]">
+                    <a href="index.html">THE KAS</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="home">TRANG CHỦ</a>
+                    <a href="about.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="about">VỀ CHÚNG TÔI</a>
+                    <a href="https://dailythekas.com/" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="agents" target="_blank">ĐẠI LÝ</a>
+                    <a href="blog.html" class="nav-link text-[#149D8D] text-xl hover:text-[#149D8D]/80 transition-all duration-300 active" data-page="blog">BÀI VIẾT</a>
+                    <a href="careers.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="careers">TUYỂN DỤNG</a>
+                </div>
+                <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-6 py-2 rounded-md transition-colors text-lg">
+                    LIÊN HỆ HỢP TÁC
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Effects -->
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 right-0 w-96 h-96 bg-[#149D8D] rounded-full opacity-10 blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-green-400 rounded-full opacity-10 blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500 rounded-full opacity-5 blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto animate-fadeInUp">
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-8 font-anton">
+                    BÀI VIẾT
+                    <span class="text-[#149D8D] block">& TIN TỨC</span>
+                </h1>
+                <p class="text-2xl md:text-3xl text-gray-300 mb-12 leading-relaxed">
+                    Khám phá thế giới board game qua những bài viết hấp dẫn và tin tức mới nhất
+                </p>
+                
+                <!-- Search & Filter -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <div class="relative">
+                        <input type="text" placeholder="Tìm kiếm bài viết..." class="bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 pr-10 text-white placeholder-gray-400 focus:outline-none focus:border-[#149D8D] w-full sm:w-80">
+                        <svg class="absolute right-3 top-3 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <select class="bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#149D8D]">
+                        <option>Tất cả danh mục</option>
+                        <option>Hướng dẫn chơi</option>
+                        <option>Review game</option>
+                        <option>Tin tức</option>
+                        <option>Sự kiện</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Article Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6 font-anton">
+                    BÀI VIẾT
+                    <span class="text-[#149D8D] block">NỔI BẬT</span>
+                </h2>
+            </div>
+            
+            <!-- Featured Article -->
+            <div class="bg-gradient-to-br from-gray-800 to-black rounded-3xl overflow-hidden border border-gray-700 hover:border-[#149D8D] transition-all duration-500 mb-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="relative h-80 lg:h-auto">
+                        <img 
+                            src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=800&h=600" 
+                            alt="Featured Article" 
+                            class="w-full h-full object-cover"
+                        />
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-[#149D8D] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                Nổi bật
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-8 lg:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-[#149D8D] text-sm font-semibold">HƯỚNG DẪN CHƠI</span>
+                            <span class="text-gray-400 text-sm">25/12/2024</span>
+                        </div>
+                        <h3 class="text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
+                            10 Board Game Việt Nam Hay Nhất Năm 2024
+                        </h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed text-lg">
+                            Khám phá những board game Việt Nam xuất sắc nhất năm 2024 với cơ chế chơi độc đáo 
+                            và chất lượng sản xuất hàng đầu. Từ game chiến thuật đến game gia đình...
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-[#149D8D] rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">TK</span>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold">The Kas Team</p>
+                                    <p class="text-gray-400 text-sm">5 phút đọc</p>
+                                </div>
+                            </div>
+                            <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-6 py-3 rounded-lg transition-colors">
+                                Đọc tiếp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Grid Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6 font-anton">
+                    TẤT CẢ
+                    <span class="text-[#149D8D] block">BÀI VIẾT</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="group bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-[#149D8D] transition-all duration-500">
+                    <div class="relative h-48 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=400&h=300" 
+                            alt="Article" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">
+                                REVIEW
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-gray-400 text-sm">20/12/2024</span>
+                            <span class="text-gray-600">•</span>
+                            <span class="text-gray-400 text-sm">3 phút đọc</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#149D8D] transition-colors">
+                            Review Chi Tiết: Catan Phiên Bản Việt Nam
+                        </h3>
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                            Đánh giá chi tiết về phiên bản Việt hóa của board game nổi tiếng Catan với những cải tiến thú vị...
+                        </p>
+                        <button class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center">
+                            Đọc thêm
+                            <svg class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="group bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-[#149D8D] transition-all duration-500">
+                    <div class="relative h-48 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=400&h=300" 
+                            alt="Article" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-semibold">
+                                HƯỚNG DẪN
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-gray-400 text-sm">18/12/2024</span>
+                            <span class="text-gray-600">•</span>
+                            <span class="text-gray-400 text-sm">7 phút đọc</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#149D8D] transition-colors">
+                            Cách Chọn Board Game Phù Hợp Cho Gia Đình
+                        </h3>
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                            Hướng dẫn chi tiết cách lựa chọn board game phù hợp với từng thành viên trong gia đình...
+                        </p>
+                        <button class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center">
+                            Đọc thêm
+                            <svg class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="group bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-[#149D8D] transition-all duration-500">
+                    <div class="relative h-48 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&w=400&h=300" 
+                            alt="Article" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold">
+                                TIN TỨC
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-gray-400 text-sm">15/12/2024</span>
+                            <span class="text-gray-600">•</span>
+                            <span class="text-gray-400 text-sm">2 phút đọc</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#149D8D] transition-colors">
+                            The Kas Giành Giải Thưởng Game Hay Nhất 2024
+                        </h3>
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                            The Kas vinh dự nhận giải thưởng "Board Game Việt Nam Hay Nhất 2024" từ hiệp hội game...
+                        </p>
+                        <button class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center">
+                            Đọc thêm
+                            <svg class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="group bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-[#149D8D] transition-all duration-500">
+                    <div class="relative h-48 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=400&h=300" 
+                            alt="Article" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-purple-600 text-white px-2 py-1 rounded text-xs font-semibold">
+                                SỰ KIỆN
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-gray-400 text-sm">12/12/2024</span>
+                            <span class="text-gray-600">•</span>
+                            <span class="text-gray-400 text-sm">4 phút đọc</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#149D8D] transition-colors">
+                            Board Game Festival 2024 - Sự Kiện Lớn Nhất Năm
+                        </h3>
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                            Tham gia Board Game Festival 2024 với hàng trăm game mới, workshop và các hoạt động thú vị...
+                        </p>
+                        <button class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center">
+                            Đọc thêm
+                            <svg class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="group bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-[#149D8D] transition-all duration-500">
+                    <div class="relative h-48 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=400&h=300" 
+                            alt="Article" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-green-600 text-white px-2 py-1 rounded text-xs font-semibold">
+                                HƯỚNG DẪN
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-gray-400 text-sm">10/12/2024</span>
+                            <span class="text-gray-600">•</span>
+                            <span class="text-gray-400 text-sm">6 phút đọc</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#149D8D] transition-colors">
+                            5 Chiến Thuật Cơ Bản Để Thắng Trong Board Game
+                        </h3>
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                            Tìm hiểu những chiến thuật cơ bản giúp bạn cải thiện kỹ năng chơi board game và giành chiến thắng...
+                        </p>
+                        <button class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center">
+                            Đọc thêm
+                            <svg class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="group bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-[#149D8D] transition-all duration-500">
+                    <div class="relative h-48 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=400&h=300" 
+                            alt="Article" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">
+                                REVIEW
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-gray-400 text-sm">08/12/2024</span>
+                            <span class="text-gray-600">•</span>
+                            <span class="text-gray-400 text-sm">5 phút đọc</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#149D8D] transition-colors">
+                            So Sánh Top 3 Board Game Chiến Thuật 2024
+                        </h3>
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                            Phân tích và so sánh 3 board game chiến thuật được yêu thích nhất năm 2024 về gameplay và thiết kế...
+                        </p>
+                        <button class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center">
+                            Đọc thêm
+                            <svg class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                    XEM THÊM BÀI VIẾT
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6 font-anton">
+                    ĐĂNG KÝ
+                    <span class="text-[#149D8D] block">NEWSLETTER</span>
+                </h2>
+                <p class="text-xl text-gray-400 mb-12 leading-relaxed">
+                    Nhận tin tức mới nhất về board game và những bài viết hấp dẫn từ The Kas
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+                    <input 
+                        type="email" 
+                        placeholder="Nhập email của bạn..." 
+                        class="bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#149D8D] flex-1"
+                    >
+                    <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-6 py-3 rounded-lg transition-colors font-semibold">
+                        ĐĂNG KÝ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold mb-4">
+                        <span class="text-[#149D8D]">THE</span> KAS
+                    </div>
+                    <p class="text-gray-400">
+                        Thương hiệu board game hàng đầu Việt Nam, mang đến những trải nghiệm chơi game độc đáo.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">DỊCH VỤ</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Thiết kế Board Game</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Phát triển Game</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Sự kiện</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Tư vấn</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">LIÊN KẾT</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-[#149D8D] transition-colors">Trang chủ</a></li>
+                        <li><a href="about.html" class="hover:text-[#149D8D] transition-colors">Về chúng tôi</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Cộng đồng</a></li>
+                        <li><a href="careers.html" class="hover:text-[#149D8D] transition-colors">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">LIÊN HỆ</h3>
+                    <p class="text-gray-400 mb-2">Email: hello@thekas.vn</p>
+                    <p class="text-gray-400 mb-4">Phone: +84 123 456 789</p>
+                    <div class="flex space-x-4">
+                        <button class="border border-[#149D8D] text-[#149D8D] px-4 py-2 rounded text-sm hover:bg-[#149D8D] hover:text-white transition-colors">
+                            Facebook
+                        </button>
+                        <button class="border border-[#149D8D] text-[#149D8D] px-4 py-2 rounded text-sm hover:bg-[#149D8D] hover:text-white transition-colors">
+                            Instagram
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; Copyright 2025 © The Kas.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Active State Handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Function to set active navigation
+            function setActiveNav(activePage) {
+                navLinks.forEach(link => {
+                    const page = link.getAttribute('data-page');
+                    if (page === activePage) {
+                        link.classList.add('active');
+                        link.classList.remove('text-[#149D8D]/70');
+                        link.classList.add('text-[#149D8D]');
+                    } else {
+                        link.classList.remove('active');
+                        link.classList.remove('text-[#149D8D]');
+                        link.classList.add('text-[#149D8D]/70');
+                    }
+                });
+            }
+            
+            // Add click handlers to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const page = this.getAttribute('data-page');
+                    
+                    // Handle links with actual URLs (external links or HTML files)
+                    if (this.href.includes('.html') || this.href.includes('http')) {
+                        // Let the browser handle the navigation naturally
+                        return;
+                    }
+                    
+                    // Handle in-page navigation
+                    if (page) {
+                        e.preventDefault();
+                        setActiveNav(page);
+                        
+                        // Add smooth animation effect
+                        this.style.transform = 'scale(1.05)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+                    }
+                });
+            });
+            
+            // Initialize with blog page active
+            setActiveNav('blog');
+        });
+        
+        // Smooth scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

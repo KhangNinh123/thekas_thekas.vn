@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuyển Dụng - The Kas Board Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        pulse: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '.5' }
+                        },
+                        bounce: {
+                            '0%, 100%': { transform: 'translateY(-25%)', animationTimingFunction: 'cubic-bezier(0.8,0,1,1)' },
+                            '50%': { transform: 'none', animationTimingFunction: 'cubic-bezier(0,0,0.2,1)' }
+                        }
+                    },
+                    animation: {
+                        'fadeInUp': 'fadeInUp 0.6s ease-out forwards',
+                        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce': 'bounce 1s infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-anton {
+            font-family: 'Anton', sans-serif;
+        }
+        .blur-3xl {
+            filter: blur(64px);
+        }
+        
+        /* Navigation Active States */
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .nav-link.active {
+            color: #149D8D !important;
+            font-weight: 700;
+        }
+        
+        .nav-link:not(.active) {
+            opacity: 0.9;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #149D8D, transparent);
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover:not(.active) {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm font-anton border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-4xl font-bold text-[#149D8D]">
+                    <a href="index.html">THE KAS</a>
+                </div>                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="home">TRANG CHỦ</a>
+                    <a href="about.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="about">VỀ CHÚNG TÔI</a>
+                    <a href="https://dailythekas.com/" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="agents" target="_blank">ĐẠI LÝ</a>
+                    <a href="blog.html" class="nav-link text-[#149D8D]/70 text-xl hover:text-[#149D8D] transition-all duration-300" data-page="blog">BÀI VIẾT</a>
+                    <a href="careers.html" class="nav-link text-[#149D8D] text-xl hover:text-[#149D8D]/80 transition-all duration-300 active" data-page="careers">TUYỂN DỤNG</a>
+                </div>
+                <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-6 py-2 rounded-md transition-colors text-lg">
+                    LIÊN HỆ HỢP TÁC
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Effects -->
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 right-0 w-96 h-96 bg-[#149D8D] rounded-full opacity-10 blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-green-400 rounded-full opacity-10 blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500 rounded-full opacity-5 blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto animate-fadeInUp">
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-8 font-anton">
+                    THAM GIA
+                    <span class="text-[#149D8D] block">THE KAS</span>
+                </h1>
+                <p class="text-2xl md:text-3xl text-gray-300 mb-12 leading-relaxed">
+                    Khám phá cơ hội nghề nghiệp tại công ty board game hàng đầu Việt Nam
+                </p>
+                
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-gradient-to-br from-[#149D8D]/20 to-green-400/20 rounded-2xl p-6 backdrop-blur-sm border border-white/10">
+                        <div class="text-4xl font-black text-[#149D8D] mb-2">50+</div>
+                        <div class="text-gray-300">Nhân Viên</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl p-6 backdrop-blur-sm border border-white/10">
+                        <div class="text-4xl font-black text-purple-400 mb-2">10+</div>
+                        <div class="text-gray-300">Vị Trí Tuyển Dụng</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl p-6 backdrop-blur-sm border border-white/10">
+                        <div class="text-4xl font-black text-blue-400 mb-2">5★</div>
+                        <div class="text-gray-300">Môi Trường Làm Việc</div>
+                    </div>
+                </div>
+                  <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <button id="view-jobs-btn" class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                        XEM VỊ TRÍ TUYỂN DỤNG
+                    </button>
+                    <button class="border-2 border-[#149D8D] text-[#149D8D] hover:bg-[#149D8D] hover:text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300">
+                        TÌM HIỂU VỀ CHÚNG TÔI
+                    </button>                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Us Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6 font-anton">
+                    TẠI SAO CHỌN
+                    <span class="text-[#149D8D] block">THE KAS?</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Chúng tôi không chỉ tạo ra board game, mà còn xây dựng một cộng đồng sáng tạo và đam mê
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-black border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-[#149D8D] rounded-full opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-[#149D8D] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-[#149D8D] transition-colors">
+                            Đội Ngũ Tài Năng
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Làm việc cùng những người đam mê và tài năng nhất trong ngành board game Việt Nam
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-black border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-green-400 rounded-full opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-[#149D8D] transition-colors">
+                            Sáng Tạo Không Giới Hạn
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Môi trường làm việc khuyến khích sự sáng tạo và thử nghiệm những ý tưởng táo bạo
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-black border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-purple-500 rounded-full opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-[#149D8D] transition-colors">
+                            Lương Thưởng Hấp Dẫn
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Chế độ đãi ngộ cạnh tranh với nhiều phúc lợi và cơ hội thăng tiến rõ ràng
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-black border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-blue-500 rounded-full opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-[#149D8D] transition-colors">
+                            Học Hỏi & Phát Triển
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Cơ hội học hỏi từ các chuyên gia và tham gia các khóa đào tạo chuyên nghiệp
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 5 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-black border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-orange-500 rounded-full opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9-9v18"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-[#149D8D] transition-colors">
+                            Làm Việc Linh Hoạt
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Thời gian làm việc linh hoạt và có thể làm việc từ xa một số ngày trong tuần
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 6 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-black border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-pink-500 rounded-full opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-pink-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-[#149D8D] transition-colors">
+                            Văn Hóa Tích Cực
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Môi trường làm việc tích cực, thân thiện với nhiều hoạt động team building
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Open Positions Section -->
+    <section id="open-positions" class="py-20 bg-black">
+        <div class="container mx-auto px-6">            <div class="text-center mb-16">                <h2 class="text-4xl md:text-6xl font-black text-white mb-6 font-anton leading-tight">
+                    VỊ TRÍ
+                    <span class="text-[#149D8D] block mt-8">TUYỂN DỤNG</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Khám phá những cơ hội nghề nghiệp thú vị đang chờ đón bạn tại The Kas
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Job 1 -->
+                <div class="group bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border border-gray-800 hover:border-[#149D8D] transition-all duration-500">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-[#149D8D] transition-colors">
+                                Game Designer
+                            </h3>
+                            <p class="text-[#149D8D] font-semibold">Full-time • Hà Nội</p>
+                        </div>
+                        <div class="bg-[#149D8D]/20 text-[#149D8D] px-3 py-1 rounded-full text-sm font-semibold">
+                            Hot
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Thiết kế và phát triển cơ chế chơi cho các board game mới. Yêu cầu kinh nghiệm 2+ năm và đam mê game design.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">Game Design</span>
+                        <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">Creative</span>
+                        <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">Board Games</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="text-2xl font-bold text-white">
+                            15-25 triệu
+                        </div>
+                        <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-6 py-2 rounded-lg transition-colors">
+                            Ứng Tuyển
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="group bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border border-gray-800 hover:border-[#149D8D] transition-all duration-500">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-[#149D8D] transition-colors">
+                                Graphic Designer
+                            </h3>
+                            <p class="text-[#149D8D] font-semibold">Full-time • TP.HCM</p>
+                        </div>
+                        <div class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-semibold">
+                            New
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Thiết kế artwork và visual cho board game. Cần có kỹ năng Illustrator, Photoshop và kinh nghiệm design game.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">Illustrator</span>
+                        <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">Photoshop</span>
+                        <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">UI/UX</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="text-2xl font-bold text-white">
+                            12-20 triệu
+                        </div>
+                        <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-6 py-2 rounded-lg transition-colors">
+                            Ứng Tuyển
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="group bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border border-gray-800 hover:border-[#149D8D] transition-all duration-500">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-[#149D8D] transition-colors">
+                                Marketing Specialist
+                            </h3>
+                            <p class="text-[#149D8D] font-semibold">Full-time • Remote</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Phát triển chiến lược marketing và quản lý các kênh truyền thông xã hội. Kinh nghiệm 1+ năm trong gaming industry.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">Social Media</span>
+                        <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">Content</span>
+                        <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">Strategy</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="text-2xl font-bold text-white">
+                            10-18 triệu
+                        </div>
+                        <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-6 py-2 rounded-lg transition-colors">
+                            Ứng Tuyển
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="group bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border border-gray-800 hover:border-[#149D8D] transition-all duration-500">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-[#149D8D] transition-colors">
+                                Product Manager
+                            </h3>
+                            <p class="text-[#149D8D] font-semibold">Full-time • Hà Nội</p>
+                        </div>
+                        <div class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm font-semibold">
+                            Senior
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Quản lý quy trình phát triển sản phẩm từ ý tưởng đến ra mắt. Yêu cầu 3+ năm kinh nghiệm product management.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">Product Management</span>
+                        <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">Agile</span>
+                        <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">Leadership</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="text-2xl font-bold text-white">
+                            20-30 triệu
+                        </div>
+                        <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-6 py-2 rounded-lg transition-colors">
+                            Ứng Tuyển
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-gray-400 mb-6">Không tìm thấy vị trí phù hợp?</p>
+                <button class="border-2 border-[#149D8D] text-[#149D8D] hover:bg-[#149D8D] hover:text-white px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-300">
+                    GỬI CV CHUNG
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6 font-anton">
+                    QUY TRÌNH
+                    <span class="text-[#149D8D] block">TUYỂN DỤNG</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Quy trình tuyển dụng minh bạch và chuyên nghiệp
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Progress Line -->
+                    <div class="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#149D8D] to-green-400"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="relative flex items-start mb-12">
+                        <div class="flex-shrink-0 w-16 h-16 bg-[#149D8D] rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
+                            1
+                        </div>
+                        <div class="ml-8">
+                            <h3 class="text-2xl font-bold text-white mb-3">Nộp Hồ Sơ</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Gửi CV và thư giới thiệu qua email hoặc form tuyển dụng trên website. 
+                                Chúng tôi sẽ phản hồi trong vòng 3-5 ngày làm việc.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="relative flex items-start mb-12">
+                        <div class="flex-shrink-0 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
+                            2
+                        </div>
+                        <div class="ml-8">
+                            <h3 class="text-2xl font-bold text-white mb-3">Phỏng Vấn Sơ Bộ</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Cuộc gọi hoặc video call 30-45 phút để tìm hiểu về kinh nghiệm, 
+                                kỹ năng và mục tiêu nghề nghiệp của bạn.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="relative flex items-start mb-12">
+                        <div class="flex-shrink-0 w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
+                            3
+                        </div>
+                        <div class="ml-8">
+                            <h3 class="text-2xl font-bold text-white mb-3">Thử Thách Kỹ Năng</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Bài test hoặc project nhỏ liên quan đến vị trí ứng tuyển. 
+                                Thời gian hoàn thành linh hoạt theo khả năng của bạn.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="relative flex items-start mb-12">
+                        <div class="flex-shrink-0 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
+                            4
+                        </div>
+                        <div class="ml-8">
+                            <h3 class="text-2xl font-bold text-white mb-3">Phỏng Vấn Chuyên Sâu</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Gặp trực tiếp với team leader và HR để thảo luận chi tiết về 
+                                công việc và văn hóa công ty.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="relative flex items-start">
+                        <div class="flex-shrink-0 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
+                            5
+                        </div>
+                        <div class="ml-8">
+                            <h3 class="text-2xl font-bold text-white mb-3">Chào Mừng Bạn!</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Thông báo kết quả và thỏa thuận điều kiện công việc. 
+                                Chào mừng bạn gia nhập đại gia đình The Kas!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-8 font-anton">
+                    SẴN SÀNG
+                    <span class="text-[#149D8D] block">THAM GIA?</span>
+                </h2>
+                <p class="text-xl text-gray-400 mb-12 leading-relaxed">
+                    Hãy gửi CV của bạn ngay hôm nay và bắt đầu hành trình sự nghiệp tại The Kas!
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-gradient-to-br from-[#149D8D]/20 to-green-400/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+                        <h3 class="text-2xl font-bold text-white mb-4">Liên Hệ HR</h3>
+                        <p class="text-gray-300 mb-4">Email: careers@thekas.vn</p>
+                        <p class="text-gray-300">Phone: +84 123 456 789</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+                        <h3 class="text-2xl font-bold text-white mb-4">Địa Chỉ Văn Phòng</h3>
+                        <p class="text-gray-300 mb-4">123 Nguyễn Huệ, Quận 1</p>
+                        <p class="text-gray-300">TP. Hồ Chí Minh</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                        GỬI CV NGAY
+                    </button>
+                    <button class="border-2 border-[#149D8D] text-[#149D8D] hover:bg-[#149D8D] hover:text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300">
+                        LIÊN HỆ HR
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold mb-4">
+                        <span class="text-[#149D8D]">THE</span> KAS
+                    </div>
+                    <p class="text-gray-400">
+                        Thương hiệu board game hàng đầu Việt Nam, mang đến những trải nghiệm chơi game độc đáo.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">DỊCH VỤ</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Thiết kế Board Game</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Phát triển Game</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Sự kiện</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Tư vấn</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">LIÊN KẾT</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-[#149D8D] transition-colors">Trang chủ</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Cộng đồng</a></li>
+                        <li><a href="careers.html" class="hover:text-[#149D8D] transition-colors">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">LIÊN HỆ</h3>
+                    <p class="text-gray-400 mb-2">Email: hello@thekas.vn</p>
+                    <p class="text-gray-400 mb-4">Phone: +84 123 456 789</p>
+                    <div class="flex space-x-4">
+                        <button class="border border-[#149D8D] text-[#149D8D] px-4 py-2 rounded text-sm hover:bg-[#149D8D] hover:text-white transition-colors">
+                            Facebook
+                        </button>
+                        <button class="border border-[#149D8D] text-[#149D8D] px-4 py-2 rounded text-sm hover:bg-[#149D8D] hover:text-white transition-colors">
+                            Instagram
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; Copyright 2025 © The Kas.</p>
+            </div>
+        </div>
+    </footer>    <script>
+        // Navigation Active State Handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Function to set active navigation
+            function setActiveNav(activePage) {
+                navLinks.forEach(link => {
+                    const page = link.getAttribute('data-page');
+                    if (page === activePage) {
+                        link.classList.add('active');
+                        link.classList.remove('text-[#149D8D]/70');
+                        link.classList.add('text-[#149D8D]');
+                    } else {
+                        link.classList.remove('active');
+                        link.classList.remove('text-[#149D8D]');
+                        link.classList.add('text-[#149D8D]/70');
+                    }
+                });
+            }
+              // Add click handlers to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const page = this.getAttribute('data-page');
+                    
+                    // Handle links with actual URLs
+                    if (this.href.includes('.html')) {
+                        // Let the browser handle the navigation naturally
+                        return;
+                    }
+                    
+                    // Handle in-page navigation
+                    if (page) {
+                        e.preventDefault();
+                        setActiveNav(page);
+                        
+                        // Add smooth animation effect
+                        this.style.transform = 'scale(1.05)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+                    }
+                });
+            });
+            
+            // Initialize with careers page active
+            setActiveNav('careers');
+            
+            // Smooth scroll to job positions section
+            const viewJobsBtn = document.getElementById('view-jobs-btn');
+            if (viewJobsBtn) {
+                viewJobsBtn.addEventListener('click', function() {
+                    const openPositionsSection = document.getElementById('open-positions');
+                    if (openPositionsSection) {
+                        openPositionsSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            }
+        });
+        
+        // Smooth scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

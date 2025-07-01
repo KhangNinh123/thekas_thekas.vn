@@ -192,11 +192,14 @@
                 <!-- Image -->
                 <div class="relative">
                     <div class="relative z-10 bg-gradient-to-br from-[#149D8D]/20 to-green-400/20 rounded-3xl p-8 backdrop-blur-sm border border-white/10">
-                        <img 
-                            src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=600&h=400" 
-                            alt="The Kas Story" 
+                        <iframe 
+                            src="https://www.youtube.com/embed/c546gTK9Gno?autoplay=1&mute=1&loop=1&playlist=c546gTK9Gno&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1" 
+                            title="The Kas Board Game Video"
                             class="w-full h-80 object-cover rounded-2xl"
-                        />
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                        ></iframe>
                     </div>
                     
                     <!-- Floating Card -->
@@ -276,67 +279,46 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-6xl font-black text-white mb-6 font-anton">
-                    ĐỘI NGŨ
-                    <span class="text-[#149D8D] block">CỦA CHÚNG TÔI</span>
+                    Cơ cấu phòng ban tại The Kas
                 </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                    Những con người tài năng và đam mê đứng sau thành công của The Kas
-                </p>
+                <a href="#" class="inline-block bg-black text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-[#149D8D] hover:text-white transition-colors mb-8 float-right md:float-none">Khám phá cơ hội việc làm &rarr;</a>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- CEO -->
-                <div class="group relative overflow-hidden rounded-3xl bg-gray-900 border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
-                    <div class="text-center">
-                        <div class="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl font-bold">
-                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-3xl font-bold text-white mb-2 group-hover:text-[#149D8D] transition-colors">
-                            Nguyễn Văn A
-                        </h3>
-                        <p class="text-xl text-[#149D8D] font-semibold mb-4">CEO & Founder</p>
-                        <p class="text-gray-400 leading-relaxed">
-                            Với hơn 15 năm kinh nghiệm trong ngành game, anh A đã dẫn dắt The Kas trở thành thương hiệu board game hàng đầu Việt Nam.
-                        </p>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Phòng Kinh doanh -->
+                <div class="bg-[#149D8D]/10 rounded-2xl p-8 text-center flex flex-col items-center">
+                    <svg class="w-16 h-16 mb-4 text-[#149D8D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M8 7a4 4 0 108 0 4 4 0 00-8 0zM20 8v6M20 8l-2 2m2-2l2 2" /></svg>
+                    <h3 class="text-2xl font-bold mb-2">Phòng Kinh doanh</h3>
+                    <p class="text-gray-300">Chịu trách nhiệm tìm kiếm, phát triển khách hàng, và xây dựng quan hệ để đạt doanh thu tối ưu.</p>
                 </div>
-
-                <!-- CTO -->
-                <div class="group relative overflow-hidden rounded-3xl bg-gray-900 border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
-                    <div class="text-center">
-                        <div class="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl font-bold">
-                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-3xl font-bold text-white mb-2 group-hover:text-[#149D8D] transition-colors">
-                            Trần Thị B
-                        </h3>
-                        <p class="text-xl text-[#149D8D] font-semibold mb-4">CTO</p>
-                        <p class="text-gray-400 leading-relaxed">
-                            Chuyên gia công nghệ với nhiều năm kinh nghiệm phát triển game. Chị B đảm nhận việc thiết kế và phát triển các sản phẩm board game đột phá.
-                        </p>
-                    </div>
+                <!-- Phòng Phát triển sản phẩm -->
+                <div class="bg-[#149D8D]/10 rounded-2xl p-8 text-center flex flex-col items-center">
+                    <svg class="w-16 h-16 mb-4 text-[#149D8D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h9"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 3.5a2.121 2.121 0 013 3L7 19.5 3 21l1.5-4L16.5 3.5z"/></svg>
+                    <h3 class="text-2xl font-bold mb-2">Phòng Phát triển sản phẩm</h3>
+                    <p class="text-gray-300">Đảm nhận nghiên cứu, thiết kế và cải tiến sản phẩm, nhằm đáp ứng nhu cầu và mong đợi của thị trường.</p>
                 </div>
-
-                <!-- CMO -->
-                <div class="group relative overflow-hidden rounded-3xl bg-gray-900 border border-gray-800 hover:border-[#149D8D] transition-all duration-500 p-8">
-                    <div class="text-center">
-                        <div class="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl font-bold">
-                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-3xl font-bold text-white mb-2 group-hover:text-[#149D8D] transition-colors">
-                            Lê Văn C
-                        </h3>
-                        <p class="text-xl text-[#149D8D] font-semibold mb-4">CMO</p>
-                        <p class="text-gray-400 leading-relaxed">
-                            Giám đốc Marketing sáng tạo, anh C chịu trách nhiệm xây dựng thương hiệu và kết nối The Kas với cộng đồng yêu thích board game.
-                        </p>
-                    </div>
+                <!-- Phòng Marketing -->
+                <div class="bg-[#149D8D]/10 rounded-2xl p-8 text-center flex flex-col items-center">
+                    <svg class="w-16 h-16 mb-4 text-[#149D8D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8a2 2 0 012-2h2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m0-6v2m0-6v2"/></svg>
+                    <h3 class="text-2xl font-bold mb-2">Phòng Marketing</h3>
+                    <p class="text-gray-300">Xây dựng chiến lược quảng bá, truyền thông, và quảng cáo để nâng cao nhận diện thương hiệu và tiếp cận khách hàng.</p>
+                </div>
+                <!-- Phòng Kế toán và Pháp chế -->
+                <div class="bg-[#149D8D]/10 rounded-2xl p-8 text-center flex flex-col items-center">
+                    <svg class="w-16 h-16 mb-4 text-[#149D8D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 014-4h2a4 4 0 014 4v2M7 7a4 4 0 108 0 4 4 0 00-8 0z"/></svg>
+                    <h3 class="text-2xl font-bold mb-2">Phòng Kế toán và Pháp chế</h3>
+                    <p class="text-gray-300">Quản lý tài chính, lập báo cáo thuế, và đảm bảo tuân thủ các quy định pháp luật liên quan đến hoạt động doanh nghiệp.</p>
+                </div>
+                <!-- Phòng Sản xuất và Vận hành -->
+                <div class="bg-[#149D8D]/10 rounded-2xl p-8 text-center flex flex-col items-center">
+                    <svg class="w-16 h-16 mb-4 text-[#149D8D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L8 21m8-4l1.75 4M12 3v12m0 0l-3.5 3.5M12 15l3.5 3.5"/></svg>
+                    <h3 class="text-2xl font-bold mb-2">Phòng Sản xuất và Vận hành</h3>
+                    <p class="text-gray-300">Tối ưu hóa quy trình làm việc, quản lý nguồn lực, và đảm bảo hiệu suất hoạt động của các dự án được diễn ra suôn sẻ.</p>
+                </div>
+                <!-- Cửa hàng -->
+                <div class="bg-[#149D8D]/10 rounded-2xl p-8 text-center flex flex-col items-center">
+                    <svg class="w-16 h-16 mb-4 text-[#149D8D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-2a4 4 0 014-4h10a4 4 0 014 4v2M16 3a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <h3 class="text-2xl font-bold mb-2">Cửa hàng</h3>
+                    <p class="text-gray-300">Bán hàng trực tiếp, cung cấp dịch vụ khách hàng, và duy trì trải nghiệm mua sắm tích cực cho khách hàng.</p>
                 </div>
             </div>
         </div>

@@ -89,7 +89,7 @@
                 <!-- Logo left (desktop), center (mobile) -->
                 <div class="flex-1 flex items-center justify-center sm:justify-start">
                     <div class="text-2xl sm:text-4xl font-bold text-[#149D8D] text-center sm:text-left">
-                        THE KAS
+                    THE KAS
                     </div>
                 </div>
                 <!-- Desktop menu ngang ở giữa -->
@@ -103,8 +103,8 @@
                 <!-- Contact button right -->
                 <div class="flex-1 flex justify-end">
                     <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-4 sm:px-6 py-2 rounded-md transition-colors text-base sm:text-lg ml-2">
-                        LIÊN HỆ HỢP TÁC
-                    </button>
+                    LIÊN HỆ HỢP TÁC
+                </button>
                 </div>
             </div>
             <!-- Mobile menu dọc -->
@@ -668,17 +668,20 @@
             </svg>
         </button>
         <!-- Chat Window -->
-        <div id="chat-window" class="hidden mt-2 w-80 max-w-xs bg-[#149D8D]/80 text-white rounded-2xl shadow-2xl overflow-hidden">
-            <div class="flex items-center justify-between px-4 py-3 bg-[#149D8D]/80 text-white">
-                <span class="font-bold">Tư vấn cùng The Kas</span>
-                <button id="chat-close" class="text-white focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div class="px-4 py-3 h-48 overflow-y-auto text-sm" id="chat-messages">
-                <div class="text-gray-200 text-center mt-8">Xin chào! Bạn cần hỗ trợ gì?</div>
+        <div id="chat-window" class="hidden mt-2 w-80 max-w-xs bg-[#149D8D]/60 text-white rounded-2xl shadow-2xl overflow-hidden relative">
+            <div class="relative">
+                <div class="flex items-center justify-between px-4 py-3 bg-[#149D8D]/60 text-white">
+                    <span class="font-bold">Tư vấn cùng The Kas</span>
+                    <button id="chat-close" class="text-white focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="px-4 py-3 h-48 overflow-y-auto text-sm" id="chat-messages">
+                    <div class="text-gray-200 text-center mt-8">Xin chào! Bạn cần hỗ trợ gì?</div>
+                </div>
+                <img src="images/logo_the_kas.png" alt="THE KAS Logo" class="absolute right-2 bottom-2 w-48 h-48 opacity-80 pointer-events-none select-none" />
             </div>
             <form id="chat-form" class="flex bg-black rounded-b-2xl overflow-hidden">
                 <input type="text" id="chat-input" class="flex-1 px-4 py-2 text-sm bg-black text-white placeholder-gray-300 focus:outline-none border-none" placeholder="Nhập tin nhắn..." autocomplete="off" />
@@ -687,109 +690,6 @@
         </div>
     </div>
 
-    <script>
-        // Navigation Active State Handler
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-              // Function to set active navigation
-            function setActiveNav(activePage) {
-                navLinks.forEach(link => {
-                    const page = link.getAttribute('data-page');
-                    if (page === activePage) {
-                        link.classList.add('active');
-                        link.classList.remove('text-[#149D8D]/70');
-                        link.classList.add('text-[#149D8D]');
-                    } else {
-                        link.classList.remove('active');
-                        link.classList.remove('text-[#149D8D]');
-                        link.classList.add('text-[#149D8D]/70');
-                    }
-                });
-            }              // Add click handlers to navigation links
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const page = this.getAttribute('data-page');
-                    
-                    // Handle links with actual URLs (external links or HTML files)
-                    if (this.href.includes('.html') || this.href.includes('http')) {
-                        // Let the browser handle the navigation naturally
-                        return;
-                    }
-                    
-                    // Handle in-page navigation
-                    if (page) {
-                        e.preventDefault();
-                        setActiveNav(page);
-                        
-                        // Add smooth animation effect
-                        this.style.transform = 'scale(1.05)';
-                        setTimeout(() => {
-                            this.style.transform = '';
-                        }, 150);
-                    }
-                });
-            });
-            
-            // Initialize with home page active (current state)
-            setActiveNav('home');
-        });
-
-        // Hamburger menu cho mobile
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-        });
-
-        // Chat bubble logic
-        (function() {
-            const chatToggle = document.getElementById('chat-toggle');
-            const chatWindow = document.getElementById('chat-window');
-            const chatClose = document.getElementById('chat-close');
-            const chatIcon = document.getElementById('chat-icon');
-            const closeIcon = document.getElementById('close-icon');
-            const chatForm = document.getElementById('chat-form');
-            const chatInput = document.getElementById('chat-input');
-            const chatMessages = document.getElementById('chat-messages');
-
-            chatToggle.addEventListener('click', function() {
-                const isOpen = !chatWindow.classList.contains('hidden');
-                chatWindow.classList.toggle('hidden');
-                // Ẩn/hiện toàn bộ nút chat bubble khi mở/đóng modal
-                if (!isOpen) {
-                    chatToggle.style.display = 'none';
-                    chatInput.focus();
-                } else {
-                    chatToggle.style.display = 'flex';
-                    chatToggle.classList.add('animate-pulse');
-                }
-            });
-            
-            if (chatClose) {
-                chatClose.addEventListener('click', function() {
-                    chatWindow.classList.add('hidden');
-                    chatToggle.style.display = 'flex';
-                    chatToggle.classList.add('animate-pulse');
-                });
-            }
-            
-            chatForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const msg = chatInput.value.trim();
-                if (msg) {
-                    const msgDiv = document.createElement('div');
-                    msgDiv.className = 'my-2 text-right';
-                    msgDiv.innerHTML = `<span class='inline-block bg-[#149D8D] text-white px-3 py-2 rounded-xl max-w-[70%]'>${msg}</span>`;
-                    chatMessages.appendChild(msgDiv);
-                    chatInput.value = '';
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }
-            });
-        })();
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -448,53 +448,10 @@
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
     <script>
-        // Navigation Active State Handler
+        // Set active page for about.html
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            // Function to set active navigation
-            function setActiveNav(activePage) {
-                navLinks.forEach(link => {
-                    const page = link.getAttribute('data-page');
-                    if (page === activePage) {
-                        link.classList.add('active');
-                        link.classList.remove('text-[#149D8D]/70');
-                        link.classList.add('text-[#149D8D]');
-                    } else {
-                        link.classList.remove('active');
-                        link.classList.remove('text-[#149D8D]');
-                        link.classList.add('text-[#149D8D]/70');
-                    }
-                });
-            }
-            
-            // Add click handlers to navigation links
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const page = this.getAttribute('data-page');
-                    
-                    // Handle links with actual URLs (external links or HTML files)
-                    if (this.href.includes('.html') || this.href.includes('http')) {
-                        // Let the browser handle the navigation naturally
-                        return;
-                    }
-                    
-                    // Handle in-page navigation
-                    if (page) {
-                        e.preventDefault();
-                        setActiveNav(page);
-                        
-                        // Add smooth animation effect
-                        this.style.transform = 'scale(1.05)';
-                        setTimeout(() => {
-                            this.style.transform = '';
-                        }, 150);
-                    }
-                });
-            });
-            
-            // Initialize with about page active
             setActiveNav('about');
         });
         
@@ -515,20 +472,6 @@
         // Observe all sections
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var btn = document.getElementById('mobile-menu-btn');
-            var menu = document.getElementById('mobile-menu');
-            if (btn && menu) {
-                btn.addEventListener('click', function() {
-                    menu.classList.toggle('hidden');
-                });
-                // Đóng menu khi bấm ra ngoài
-                menu.addEventListener('click', function(e) {
-                    if (e.target === menu) menu.classList.add('hidden');
-                });
-            }
         });
     </script>
 </body>

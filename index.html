@@ -654,6 +654,39 @@
             </div>
         </div>    </footer>
 
+    <!-- Chat Bubble -->
+    <div id="chat-bubble" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Chat Button -->
+        <button id="chat-toggle" class="bg-[#149D8D] hover:bg-[#0e7c6c] text-white rounded-full shadow-lg w-16 h-16 flex items-center justify-center focus:outline-none animate-pulse">
+            <!-- Modern chat bubble with 3 dots icon -->
+            <svg id="chat-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h10m-5 4h.01M21 12c0 4.418-4.03 8-9 8a9.77 9.77 0 01-4-.8L3 21l1.8-4A7.963 7.963 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <!-- Icon đóng -->
+            <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Chat Window -->
+        <div id="chat-window" class="hidden mt-2 w-80 max-w-xs bg-white text-black rounded-2xl shadow-2xl overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 bg-[#149D8D] text-white">
+                <span class="font-bold">Tư vấn cùng The Kas</span>
+                <button id="chat-close" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="px-4 py-3 h-48 overflow-y-auto text-sm" id="chat-messages">
+                <div class="text-gray-500 text-center mt-8">Xin chào! Bạn cần hỗ trợ gì?</div>
+            </div>
+            <form id="chat-form" class="flex items-center border-t border-gray-200">
+                <input type="text" id="chat-input" class="flex-1 px-4 py-2 text-sm focus:outline-none" placeholder="Nhập tin nhắn..." autocomplete="off" />
+                <button type="submit" class="px-4 py-2 text-[#149D8D] font-bold hover:text-green-600">Gửi</button>
+            </form>
+        </div>
+    </div>
+
     <script>
         // Navigation Active State Handler
         document.addEventListener('DOMContentLoaded', function() {
@@ -711,6 +744,52 @@
                 });
             }
         });
+
+        // Chat bubble logic
+        (function() {
+            const chatToggle = document.getElementById('chat-toggle');
+            const chatWindow = document.getElementById('chat-window');
+            const chatClose = document.getElementById('chat-close');
+            const chatIcon = document.getElementById('chat-icon');
+            const closeIcon = document.getElementById('close-icon');
+            const chatForm = document.getElementById('chat-form');
+            const chatInput = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
+
+            chatToggle.addEventListener('click', function() {
+                const isOpen = !chatWindow.classList.contains('hidden');
+                chatWindow.classList.toggle('hidden');
+                chatIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+                // Hiệu ứng: dừng animate-pulse khi mở chat, bật lại khi đóng
+                if (!isOpen) {
+                    chatToggle.classList.remove('animate-pulse');
+                    chatInput.focus();
+                } else {
+                    chatToggle.classList.add('animate-pulse');
+                }
+            });
+            if (chatClose) {
+                chatClose.addEventListener('click', function() {
+                    chatWindow.classList.add('hidden');
+                    chatIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                    chatToggle.classList.add('animate-pulse');
+                });
+            }
+            chatForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const msg = chatInput.value.trim();
+                if (msg) {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = 'my-2 text-right';
+                    msgDiv.innerHTML = `<span class='inline-block bg-[#149D8D] text-white px-3 py-2 rounded-xl max-w-[70%]'>${msg}</span>`;
+                    chatMessages.appendChild(msgDiv);
+                    chatInput.value = '';
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            });
+        })();
     </script>
 </body>
 </html>

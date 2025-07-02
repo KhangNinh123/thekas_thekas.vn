@@ -759,24 +759,24 @@
             chatToggle.addEventListener('click', function() {
                 const isOpen = !chatWindow.classList.contains('hidden');
                 chatWindow.classList.toggle('hidden');
-                chatIcon.classList.toggle('hidden');
-                closeIcon.classList.toggle('hidden');
-                // Hiệu ứng: dừng animate-pulse khi mở chat, bật lại khi đóng
+                // Ẩn/hiện toàn bộ nút chat bubble khi mở/đóng modal
                 if (!isOpen) {
-                    chatToggle.classList.remove('animate-pulse');
+                    chatToggle.style.display = 'none';
                     chatInput.focus();
                 } else {
+                    chatToggle.style.display = 'flex';
                     chatToggle.classList.add('animate-pulse');
                 }
             });
+            
             if (chatClose) {
                 chatClose.addEventListener('click', function() {
                     chatWindow.classList.add('hidden');
-                    chatIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
+                    chatToggle.style.display = 'flex';
                     chatToggle.classList.add('animate-pulse');
                 });
             }
+            
             chatForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const msg = chatInput.value.trim();

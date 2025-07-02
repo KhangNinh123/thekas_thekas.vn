@@ -1,3 +1,23 @@
+// Rule-based chatbot trả lời tự động, không cần AI, không cần backend
+const chatbotReplies = [
+  'Xin chào! Tôi có thể giúp gì cho bạn?',
+  'Cảm ơn bạn đã liên hệ The Kas. Bạn cần tư vấn về sản phẩm, dịch vụ hay tuyển dụng?',
+  'Chúng tôi sẽ phản hồi bạn trong thời gian sớm nhất!',
+  'Bạn vui lòng để lại số điện thoại hoặc email để được hỗ trợ nhanh hơn nhé!',
+  'Bạn muốn tìm hiểu về board game, sự kiện hay hợp tác kinh doanh?'
+];
+
+function getBotReply(msg) {
+  msg = msg.toLowerCase();
+  if (msg.includes('chào') || msg.includes('hello')) return 'Chào bạn! Tôi là trợ lý The Kas.';
+  if (msg.includes('sản phẩm') || msg.includes('board game')) return 'Bạn muốn biết thêm về sản phẩm board game nào?';
+  if (msg.includes('giá') || msg.includes('bao nhiêu')) return 'Bạn vui lòng cho biết tên sản phẩm để tôi báo giá nhé!';
+  if (msg.includes('tuyển dụng') || msg.includes('việc làm')) return 'Bạn quan tâm vị trí tuyển dụng nào tại The Kas?';
+  if (msg.includes('liên hệ') || msg.includes('contact')) return 'Bạn có thể liên hệ qua email: hello@thekas.vn hoặc số điện thoại: 038 236 8625.';
+  // Random câu trả lời mẫu
+  return chatbotReplies[Math.floor(Math.random() * chatbotReplies.length)];
+}
+
 // Navigation Active State Handler
 let setActiveNav; // Declare globally
 
@@ -42,12 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-                // Initialize with home page active (current state)
-            // Only set if no other page has been set
-            if (typeof window.currentPage === 'undefined') {
-                setActiveNav('home');
-            }
+    // Only set if no other page has been set
+    if (typeof window.currentPage === 'undefined') {
+        setActiveNav('home');
+    }
 });
 
 // Hamburger menu cho mobile
@@ -100,12 +118,23 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const msg = chatInput.value.trim();
             if (msg) {
+                // Hiển thị tin nhắn người dùng
                 const msgDiv = document.createElement('div');
                 msgDiv.className = 'my-2 text-right';
                 msgDiv.innerHTML = `<span class='inline-block bg-[#149D8D] text-white px-3 py-2 rounded-xl max-w-[70%]'>${msg}</span>`;
                 chatMessages.appendChild(msgDiv);
                 chatInput.value = '';
                 chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Trả lời tự động bằng rule-based
+                setTimeout(() => {
+                  const aiReply = getBotReply(msg);
+                  const aiDiv = document.createElement('div');
+                  aiDiv.className = 'my-2 text-left';
+                  aiDiv.innerHTML = `<span class='inline-block bg-white text-black px-3 py-2 rounded-xl max-w-[70%]'>${aiReply}</span>`;
+                  chatMessages.appendChild(aiDiv);
+                  chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 600);
             }
         });
     }

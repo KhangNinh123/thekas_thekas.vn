@@ -668,8 +668,8 @@
             </svg>
         </button>
         <!-- Chat Window -->
-        <div id="chat-window" class="hidden mt-2 w-80 max-w-xs bg-white text-black rounded-2xl shadow-2xl overflow-hidden">
-            <div class="flex items-center justify-between px-4 py-3 bg-[#149D8D] text-white">
+        <div id="chat-window" class="hidden mt-2 w-80 max-w-xs bg-[#149D8D]/80 text-white rounded-2xl shadow-2xl overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 bg-[#149D8D]/80 text-white">
                 <span class="font-bold">Tư vấn cùng The Kas</span>
                 <button id="chat-close" class="text-white focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -678,11 +678,11 @@
                 </button>
             </div>
             <div class="px-4 py-3 h-48 overflow-y-auto text-sm" id="chat-messages">
-                <div class="text-gray-500 text-center mt-8">Xin chào! Bạn cần hỗ trợ gì?</div>
+                <div class="text-gray-200 text-center mt-8">Xin chào! Bạn cần hỗ trợ gì?</div>
             </div>
-            <form id="chat-form" class="flex items-center border-t border-gray-200">
-                <input type="text" id="chat-input" class="flex-1 px-4 py-2 text-sm focus:outline-none" placeholder="Nhập tin nhắn..." autocomplete="off" />
-                <button type="submit" class="px-4 py-2 text-[#149D8D] font-bold hover:text-green-600">Gửi</button>
+            <form id="chat-form" class="flex bg-black rounded-b-2xl overflow-hidden">
+                <input type="text" id="chat-input" class="flex-1 px-4 py-2 text-sm bg-black text-white placeholder-gray-300 focus:outline-none border-none" placeholder="Nhập tin nhắn..." autocomplete="off" />
+                <button type="submit" class="px-4 py-2 bg-black text-white font-bold hover:text-green-400 border-none">Gửi</button>
             </form>
         </div>
     </div>

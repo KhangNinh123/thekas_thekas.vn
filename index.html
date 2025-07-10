@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Kas - Board Game Việt Nam</title>
+    <title>The Kas - Board Game Việt Nam | Thiết kế, phát triển, mua bán board game, in ấn theo yêu cầu</title>
+    <meta name="description" content="The Kas - Thương hiệu board game hàng đầu Việt Nam. Thiết kế, phát triển, mua bán board game, in ấn theo yêu cầu, sự kiện cộng đồng, đối tác chiến lược. Trải nghiệm chơi game sáng tạo, chất lượng, uy tín.">
+    <meta name="keywords" content="board game, The Kas, thiết kế board game, phát triển game, in ấn, mua board game, đại lý board game, sự kiện board game, board game Việt Nam">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://thekas.vn/">
+    <meta property="og:title" content="The Kas - Board Game Việt Nam | Thiết kế, phát triển, mua bán board game, in ấn theo yêu cầu">
+    <meta property="og:description" content="The Kas - Thương hiệu board game hàng đầu Việt Nam. Thiết kế, phát triển, mua bán board game, in ấn theo yêu cầu, sự kiện cộng đồng, đối tác chiến lược. Trải nghiệm chơi game sáng tạo, chất lượng, uy tín.">
+    <meta property="og:image" content="https://thekas.vn/images/banner.png">
+    <meta property="og:url" content="https://thekas.vn/">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.1/dist/transformers.umd.min.js"></script>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <script>
         tailwind.config = {
             theme: {
@@ -124,11 +133,14 @@
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">        <!-- Background Elements -->
         <div class="absolute inset-0">
-            <img 
-                src="images/banner.png" 
-                alt="The Kas Background" 
-                class="w-full h-full object-cover"
-            />
+            <picture>
+                <source srcset="images/banner_mobile.png" media="(max-width: 640px)">
+                <img 
+                    src="images/banner.png" 
+                    alt="The Kas Background" 
+                    class="w-full h-full object-cover"
+                />
+            </picture>
         </div>
         <div class="absolute top-20 right-10 w-64 h-64 bg-[#149D8D] rounded-full opacity-20 blur-3xl"></div>
         <div class="absolute bottom-20 left-10 w-96 h-96 bg-green-400 rounded-full opacity-10 blur-3xl"></div>
@@ -152,16 +164,14 @@
         </div>
         
         <div class="relative z-10 container mx-auto px-6">
-            <!-- Moving Text Banner -->
+            <!-- Moving      -->
             <div class="mb-16 overflow-hidden bg-[#149D8D] py-4">
                 <div class="flex animate-marquee whitespace-nowrap">
-                    <span class="text-2xl font-black text-black mx-8">THIẾT KẾ BOARD GAME</span>
+                    <span class="text-2xl font-black text-black mx-8">ĐỒNG HÀNH KIẾN TẠO GIÁ TRỊ</span>
                     <span class="text-2xl font-black text-black mx-8">•</span>
-                    <span class="text-2xl font-black text-black mx-8">PHÁT TRIỂN GAME</span>
+                    <span class="text-2xl font-black text-black mx-8">SÁNG TẠO KHÔNG NGỪNG</span>
                     <span class="text-2xl font-black text-black mx-8">•</span>
-                    <span class="text-2xl font-black text-black mx-8">SỰ KIỆN CỘNG ĐỒNG</span>
-                    <span class="text-2xl font-black text-black mx-8">•</span>
-                    <span class="text-2xl font-black text-black mx-8">TÀI NGUYÊN CHIẾN LƯỢC</span>
+                    <span class="text-2xl font-black text-black mx-8">NÂNG TẦM THƯƠNG HIỆU VIỆT</span>
                     <span class="text-2xl font-black text-black mx-8">•</span>
                 </div>
             </div>
@@ -171,10 +181,10 @@
                 <div class="text-center group">
                     <div class="relative">
                         <div class="text-5xl md:text-6xl font-black text-[#149D8D] mb-2 group-hover:scale-110 transition-transform duration-300">
-                            500+
+                            50+
                         </div>
                         <div class="text-sm md:text-base text-gray-400 font-semibold tracking-wider">
-                            NGƯỜI CHƠI HÀI LÒNG
+                            DỰ ÁN ĐÃ TRIỂN KHAI
                         </div>
                         <!-- Hover Effect -->
                         <div class="absolute inset-0 bg-gradient-to-r from-[#149D8D]/20 to-green-400/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
@@ -184,10 +194,10 @@
                 <div class="text-center group">
                     <div class="relative">
                         <div class="text-5xl md:text-6xl font-black text-[#149D8D] mb-2 group-hover:scale-110 transition-transform duration-300">
-                            100+
+                            150+
                         </div>
                         <div class="text-sm md:text-base text-gray-400 font-semibold tracking-wider">
-                            ĐÊM CHƠI TỔ CHỨC
+                            ĐỐI TÁC
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-r from-[#149D8D]/20 to-green-400/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
                     </div>
@@ -208,10 +218,10 @@
                 <div class="text-center group">
                     <div class="relative">
                         <div class="text-5xl md:text-6xl font-black text-[#149D8D] mb-2 group-hover:scale-110 transition-transform duration-300">
-                            50+
+                            250+
                         </div>
                         <div class="text-sm md:text-base text-gray-400 font-semibold tracking-wider">
-                            BOARD GAME ĐÃ TẠO
+                            SẢN PHẨM
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-r from-[#149D8D]/20 to-green-400/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
                     </div>
@@ -250,25 +260,25 @@
                         </p>
                         
                         <div class="flex items-center justify-between">
-                            <button class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center">
+                            <a href="https://dailythekas.com/" target="_blank" class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center cursor-pointer z-10 relative">
                                 TÌM HIỂU THÊM
                                 <svg class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
-                            </button>
+                            </a>
                             
-                            <div class="w-16 h-16 rounded-full border-2 border-gray-700 group-hover:border-[#149D8D] flex items-center justify-center transition-colors">
+                            <a href="https://dailythekas.com/" target="_blank" class="w-16 h-16 rounded-full border-2 border-gray-700 group-hover:border-[#149D8D] flex items-center justify-center transition-colors cursor-pointer z-10 relative">
                                 <svg class="h-6 w-6 text-gray-700 group-hover:text-[#149D8D] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     
                     <!-- Background Image -->
                     <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 group-hover:opacity-30 transition-opacity">
                         <img 
-                            src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=400&h=300" 
+                            src="./images/daili_banner.jpg" 
                             alt="Board game design"
                             class="w-full h-full object-cover"
                         />
@@ -294,24 +304,24 @@
                         </p>
                         
                         <div class="flex items-center justify-between">
-                            <button class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center">
+                            <a href="https://inanthekas.com/" target="_blank" class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center cursor-pointer z-10 relative">
                                 TÌM HIỂU THÊM
                                 <svg class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
-                            </button>
+                            </a>
                             
-                            <div class="w-16 h-16 rounded-full border-2 border-gray-700 group-hover:border-[#149D8D] flex items-center justify-center transition-colors">
+                            <a href="https://inanthekas.com/" target="_blank" class="w-16 h-16 rounded-full border-2 border-gray-700 group-hover:border-[#149D8D] flex items-center justify-center transition-colors cursor-pointer z-10 relative">
                                 <svg class="h-6 w-6 text-gray-700 group-hover:text-[#149D8D] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     
                     <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 group-hover:opacity-30 transition-opacity">
                         <img 
-                            src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=400&h=300" 
+                            src="./images/inan_banner.png" 
                             alt="Community events"
                             class="w-full h-full object-cover"
                         />
@@ -336,24 +346,24 @@
                         </p>
                         
                         <div class="flex items-center justify-between">
-                            <button class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center">
+                            <a href="https://boardgameviet.com/" target="_blank" class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center cursor-pointer z-10 relative">
                                 TÌM HIỂU THÊM
                                 <svg class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
-                            </button>
+                            </a>
                             
-                            <div class="w-16 h-16 rounded-full border-2 border-gray-700 group-hover:border-[#149D8D] flex items-center justify-center transition-colors">
+                            <a href="https://boardgameviet.com/" target="_blank" class="w-16 h-16 rounded-full border-2 border-gray-700 group-hover:border-[#149D8D] flex items-center justify-center transition-colors cursor-pointer z-10 relative">
                                 <svg class="h-6 w-6 text-gray-700 group-hover:text-[#149D8D] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     
                     <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 group-hover:opacity-30 transition-opacity">
                         <img 
-                            src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=400&h=300" 
+                            src="./images/buyboardgame_banner.jpeg" 
                             alt="Board game store"
                             class="w-full h-full object-cover"
                         />
@@ -365,7 +375,7 @@
                 <!-- Service 4 -->
                 <div class="group relative overflow-hidden rounded-3xl bg-black border border-gray-800 hover:border-[#149D8D] transition-all duration-500">
                     <div class="p-8">
-                        <div class="inline-block p-4 rounded-2xl bg-purple-600 mb-6">
+                        <div class="inline-block p-4 rounded-2xl bg-red-500 mb-6">
                             <div class="w-8 h-8 bg-white rounded-lg"></div>
                         </div>
                         
@@ -374,37 +384,36 @@
                         </h3>
                         
                         <p class="text-gray-400 mb-6 leading-relaxed">
-                            Cơ hội kinh doanh hấp dẫn và đầy tiềm năng. Sản phẩm độc đáo, giá cả cạnh tranh, hỗ trợ marketing cho các đại lý giúp phân phối hàng hóa dễ hơn. Chính sách ưu đãi hấp dẫn, hỗ trợ đồng hành phát triển.
+                            Cửa hàng board game với đa dạng các sản phẩm từ Việt Nam và quốc tế.
                         </p>
                         
                         <div class="flex items-center justify-between">
-                            <button class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center">
+                            <a href="https://dailythekas.com/" target="_blank" class="text-[#149D8D] hover:text-green-400 transition-colors flex items-center cursor-pointer z-10 relative">
                                 TÌM HIỂU THÊM
                                 <svg class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
-                            </button>
+                            </a>
                             
-                            <div class="w-16 h-16 rounded-full border-2 border-gray-700 group-hover:border-[#149D8D] flex items-center justify-center transition-colors">
+                            <a href="https://dailythekas.com/" target="_blank" class="w-16 h-16 rounded-full border-2 border-gray-700 group-hover:border-[#149D8D] flex items-center justify-center transition-colors cursor-pointer z-10 relative">
                                 <svg class="h-6 w-6 text-gray-700 group-hover:text-[#149D8D] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     
                     <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 group-hover:opacity-30 transition-opacity">
                         <img 
-                            src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=400&h=300" 
-                            alt="Strategy resources"
+                            src="./images/buyboardgame_banner.jpeg" 
+                            alt="Board game store"
                             class="w-full h-full object-cover"
                         />
                     </div>
                     
                     <div class="absolute inset-0 bg-gradient-to-r from-[#149D8D]/0 to-[#149D8D]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-            </div>
-        </div>    </section>
+ </section>
 
     <!-- Partners Section -->
     <section class="py-20 bg-black relative overflow-hidden">
@@ -483,7 +492,7 @@
                         <div class="w-20 h-20 bg-gradient-to-br from-[#149D8D] to-green-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                             <span class="text-white font-black text-2xl">5000</span>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-2">Đối Tác Tin Cậy</h4>
+                        <h4 class="text-lg font-bold text-white mb-2">Đối Tác Tin Cậy</h4>
                         <p class="text-gray-400">Hợp tác lâu dài với các thương hiệu uy tín trong ngành</p>
                     </div>
 
@@ -491,7 +500,7 @@
                         <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                             <span class="text-white font-black text-2xl">3</span>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-2">Năm Hợp Tác</h4>
+                        <h4 class="text-lg font-bold text-white mb-2">Năm Hợp Tác</h4>
                         <p class="text-gray-400">Kinh nghiệm dài lâu trong việc xây dựng mối quan hệ đối tác</p>
                     </div>
 
@@ -499,7 +508,7 @@
                         <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                             <span class="text-white font-black text-2xl">100%</span>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-2">Cam Kết Chất Lượng</h4>
+                        <h4 class="text-lg font-bold text-white mb-2">Cam Kết Chất Lượng</h4>
                         <p class="text-gray-400">Đảm bảo chất lượng sản phẩm và dịch vụ cho mọi đối tác</p>
                     </div>
                 </div>
@@ -521,52 +530,20 @@
                 <div class="space-y-8">
                     <div class="space-y-6">
                         <h2 class="text-5xl md:text-6xl font-black text-white leading-tight">
-                            SÁNG TẠO
-                            <span class="text-[#149D8D] block">GẶP GỠ</span>
-                            <span class="bg-gradient-to-r from-green-400 to-[#149D8D] bg-clip-text text-transparent block">
-                                CHIẾN LƯỢC
-                            </span>
+                            TẦM NHÌN <span class="text-[#149D8D]">SỨ MỆNH</span> <span class="bg-gradient-to-r from-green-400 to-[#149D8D] bg-clip-text text-transparent">GIÁ TRỊ CỐT LÕI</span>
                         </h2>
-                        
-                        <p class="text-xl text-gray-400 leading-relaxed">
-                            Với hơn 10 năm kinh nghiệm trong ngành board game, The Kas đã tạo ra 
-                            những sản phẩm độc đáo kết hợp giữa văn hóa Việt Nam và xu hướng game hiện đại.
+                        <p class="text-xl text-gray-400 leading-relaxed mt-6">
+                            Với hơn 10 năm phát triển, The Kas tiên phong sáng tạo và đổi mới không ngừng, cam kết mang đến những giải pháp chất lượng, minh bạch, đồng hành bền vững cùng khách hàng và đối tác, luôn cập nhật xu hướng để nâng tầm giá trị thương hiệu.
                         </p>
                     </div>
                     
-                    <!-- Features -->
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-[#149D8D] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <span class="text-white font-bold text-lg">10+</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2">Năm Kinh Nghiệm</h3>
-                                <p class="text-gray-400">Chuyên gia trong lĩnh vực thiết kế và phát triển board game tại Việt Nam.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <span class="text-black font-bold text-lg">✓</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2">Được Tin Tưởng Bởi Cộng Đồng</h3>
-                                <p class="text-gray-400">Hàng nghìn người chơi tin tưởng và yêu thích các sản phẩm của chúng tôi.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <div class="flex flex-col sm:flex-row gap-4 pt-6">
-                        <button class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-8 py-4 rounded-md transition-colors flex items-center justify-center">
+                        <a href="about.html" class="bg-[#149D8D] hover:bg-[#149D8D]/80 text-white px-8 py-4 rounded-md transition-colors flex items-center justify-center">
                             VỀ CHÚNG TÔI
                             <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
-                        </button>
-                        <button class="border border-[#149D8D] text-[#149D8D] hover:bg-[#149D8D] hover:text-white px-8 py-4 rounded-md transition-colors">
-                            XEM PORTFOLIO
-                        </button>
+                        </a>
                     </div>
                 </div>
                 
@@ -576,7 +553,7 @@
                         <!-- Main Image -->
                         <div class="relative z-10 bg-gradient-to-br from-[#149D8D]/20 to-green-400/20 rounded-3xl p-8 backdrop-blur-sm border border-white/10">
                             <img 
-                                src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&w=600&h=400" 
+                                src="./images/The-Kas-Tuyen-dung-3.jpg" 
                                 alt="Creative board game design" 
                                 class="w-full h-80 object-cover rounded-2xl"
                             />
@@ -590,12 +567,6 @@
                             </div>
                         </div>
                         
-                        <div class="absolute -bottom-8 -left-8 bg-[#149D8D] rounded-2xl p-6 text-white z-20">
-                            <div class="text-center">
-                                <div class="text-2xl font-black mb-2">Award</div>
-                                <div class="text-sm opacity-90">Winning Design</div>
-                            </div>
-                        </div>
                         
                         <!-- Decorative Elements -->
                         <div class="absolute top-1/4 -left-4 w-8 h-8 bg-yellow-400 rounded-full animate-pulse"></div>
@@ -617,43 +588,47 @@
                     <p class="text-gray-400">
                         Thương hiệu board game hàng đầu Việt Nam, mang đến những trải nghiệm chơi game độc đáo.
                     </p>
+                    <div class="flex space-x-2 mt-2">
+                        <a href="https://facebook.com/thekas.vn" target="_blank" class="border border-[#149D8D] text-[#149D8D] p-2 rounded text-sm hover:bg-[#149D8D] hover:text-white transition-colors flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+                        </a>
+                        <a href="https://instagram.com/thekas.vn" target="_blank" class="border border-[#149D8D] text-[#149D8D] p-2 rounded text-sm hover:bg-[#149D8D] hover:text-white transition-colors flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2A3.2 3.2 0 1 1 12 8.8a3.2 3.2 0 0 1 0 6.4zm4.5-8.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <h3 class="font-semibold mb-4">DỊCH VỤ</h3>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Thiết kế Board Game</a></li>
-                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Phát triển Game</a></li>
-                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Sự kiện</a></li>
-                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Tư vấn</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Thiết kế & Phát triển Board Game</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">In ấn theo yêu cầu</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Mua board game</a></li>
+                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Đăng ký đại lý</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="font-semibold mb-4">LIÊN KẾT</h3>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Về chúng tôi</a></li>
-                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Blog</a></li>
+                        <li><a href="about.html" class="hover:text-[#149D8D] transition-colors">Về chúng tôi</a></li>
+                        <li><a href="blog.html" class="hover:text-[#149D8D] transition-colors">Blog</a></li>
                         <li><a href="#" class="hover:text-[#149D8D] transition-colors">Cộng đồng</a></li>
-                        <li><a href="#" class="hover:text-[#149D8D] transition-colors">Hỗ trợ</a></li>
+                        <li><a href="lien-he-hop-tac.html" class="hover:text-[#149D8D] transition-colors">Hỗ trợ</a></li>
                     </ul>
-                </div>
+                    </div>
                 <div>
                     <h3 class="font-semibold mb-4">LIÊN HỆ</h3>
-                    <p class="text-gray-400 mb-2">Email: hello@thekas.vn</p>
-                    <p class="text-gray-400 mb-4">Phone: +84 38 236 8625</p>
-                    <div class="flex space-x-4">
-                        <button class="border border-[#149D8D] text-[#149D8D] px-4 py-2 rounded text-sm hover:bg-[#149D8D] hover:text-white transition-colors">
-                            Facebook
-                        </button>
-                        <button class="border border-[#149D8D] text-[#149D8D] px-4 py-2 rounded text-sm hover:bg-[#149D8D] hover:text-white transition-colors">
-                            Instagram
-                        </button>
-                    </div>
+                    <p class="text-gray-400 mb-2">Email: lienhe@thekas.vn</p>
+                    <p class="text-gray-400 mb-2">Phone: +84 38 236 8625</p>
+                    <p class="text-gray-400 mb-2">Địa chỉ: 225 Nguyễn Xí, Phường 13, Quận Bình Thạnh, TP.HCM</p>
+                    <p class="text-gray-400 mb-4">Cửa hàng: 860/60s/5 Xô Viết Nghệ Tĩnh, Phường 25, Quận Bình Thạnh, TP.HCM</p>
+                    
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                 <p>&copy; Copyright 2025 © The Kas.</p>
             </div>
-        </div>    </footer>
+        </div>
+    </footer>
 
     <!-- Chat Bubble -->
     <div id="chat-bubble" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
